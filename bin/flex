@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+if (file_exists(__DIR__ . '/../../../autoload.php')) {
+  require_once(__DIR__ . '/../../../autoload.php');
+} elseif (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+  require_once(__DIR__ . '/../vendor/autoload.php');
+}
+
+$app = new Ahc\Cli\Application('WordPress Flex Section System CLI Tool', '0.0.1');
+
+$app->group('library', function($app) {
+  $app->add(new HappyMedium\Flex\Cli\LibrarySetupCommand);
+  $app->add(new HappyMedium\Flex\Cli\LibraryUpdateCommand);
+});
+
+$app->group('module', function($app) {
+  $app->add(new HappyMedium\Flex\Cli\ModuleImportCommand);
+  $app->add(new HappyMedium\Flex\Cli\ModuleExportCommand);
+});
+
+$app->onException(function(Throwable $e, int $exitCode) {
+  $io = new \Ahc\Cli\IO\Interactor;
+  $io->error('Error: ' . $e->getMessage(), true);
+  exit($exitCode);
+});
+
+$app->handle($_SERVER['argv']);
+?>
