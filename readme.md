@@ -1,5 +1,9 @@
 # Flex Section System Command Line Interface
 
+[![packagist package version](https://img.shields.io/packagist/v/itsahappymedium/flex-cli.svg?style=flat-square)](https://packagist.org/packages/itsahappymedium/flex-cli)
+[![packagist package downloads](https://img.shields.io/packagist/dt/itsahappymedium/flex-cli.svg?style=flat-square)](https://packagist.org/packages/itsahappymedium/flex-cli)
+[![license](https://img.shields.io/github/license/itsahappymedium/flex-cli.svg?style=flat-square)](license.md)
+
 **Notice: This tool/system is experimental.**
 
 A CLI tool for [Happy Medium](https://itsahappymedium.com)'s WordPress Flex Section System.
