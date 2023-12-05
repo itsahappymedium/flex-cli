@@ -37,3 +37,8 @@ module
   module:export     Exports a module from the current website project into the modules library repository
   module:import     Imports a flex section module into the current project
 ```
+
+
+## License
+
+MIT. See the [license.md file](license.md) for more info.
