@@ -15,20 +15,20 @@ A CLI tool for [Happy Medium](https://itsahappymedium.com)'s WordPress Flex Sect
 
 ```
 composer require-dev itsahappymedium/flex-cli
-./vendor/bin/flex --help
+./vendor/bin/flx --help
 ```
 
 ### To your system (global)
 
 ```
 composer global require itsahappymedium/flix-cli
-flex --help
+flx --help
 ```
 
 
 ## Setup
 
-After you first install the tool, you will want to run `flex library:setup` which will pull down the flex sections library.
+After you first install the tool, you will want to run `flx library:setup` which will pull down the flex sections library.
 
 
 ## Commands

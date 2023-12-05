@@ -23,7 +23,7 @@
   "homepage": "https://github.com/itsahappymedium/flex-cli",
   "license": "MIT",
   "bin": [
-    "bin/flex"
+    "bin/flx"
   ],
   "autoload": {
     "psr-4": {

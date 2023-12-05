@@ -6,7 +6,7 @@ if (file_exists(__DIR__ . '/../../../autoload.php')) {
   require_once(__DIR__ . '/../vendor/autoload.php');
 }
 
-$app = new Ahc\Cli\Application('WordPress Flex Section System CLI Tool', '0.0.1');
+$app = new Ahc\Cli\Application('Flex CLI', '0.0.2');
 
 $app->group('library', function($app) {
   $app->add(new HappyMedium\Flex\Cli\LibrarySetupCommand);
