@@ -12,7 +12,7 @@ abstract class BaseCommand extends Command {
     }
 
     if (in_array('jsonFile', $used_globals)) {
-      $this->option('-j --json-file [path]', 'The path to the flex.json file relative to the content-path', 'strval', 'acf-json/flex.json');
+      $this->option('-j --json-file [path]', 'The path to the flex.json file relative to the content-path', 'strval', 'acf-json/group_658da618097e1.json');
     }
 
     if (in_array('modulesPath', $used_globals)) {
