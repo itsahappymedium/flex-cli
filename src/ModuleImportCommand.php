@@ -63,7 +63,8 @@ class ModuleImportCommand extends BaseCommand {
     $acf_json_path = $this->path($this->themePath, $this->jsonFile);
     $acf_json = json_decode(file_get_contents($acf_json_path), true);
 
-    if ($acf_json['key'] !== 'flex') {
+    // @TODO: Make this dynamic/configurable
+    if ($acf_json['key'] !== 'group_658da618097e1') {
       throw new \Error('Invalid ACF json');
     }
 
