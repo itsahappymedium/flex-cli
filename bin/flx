@@ -9,6 +9,7 @@ if (file_exists(__DIR__ . '/../../../autoload.php')) {
 $app = new Ahc\Cli\Application('Flex CLI', '0.0.2');
 
 $app->group('library', function($app) {
+  $app->add(new HappyMedium\Flex\Cli\LibraryListCommand);
   $app->add(new HappyMedium\Flex\Cli\LibrarySetupCommand);
   $app->add(new HappyMedium\Flex\Cli\LibraryUpdateCommand);
 });
@@ -16,6 +17,7 @@ $app->group('library', function($app) {
 $app->group('module', function($app) {
   $app->add(new HappyMedium\Flex\Cli\ModuleImportCommand);
   $app->add(new HappyMedium\Flex\Cli\ModuleExportCommand);
+  $app->add(new HappyMedium\Flex\Cli\ModuleListCommand);
 });
 
 $app->onException(function(Throwable $e, int $exitCode) {
