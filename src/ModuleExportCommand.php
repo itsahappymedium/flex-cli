@@ -41,10 +41,15 @@ class ModuleExportCommand extends BaseCommand {
     }
 
     if (is_dir($dest_path)) {
-      throw new \Error("The {$dest_path} directory already exists");
-    }
+      $confirm = $io->confirm("The {$dest_path} directory already exists. Continue?", 'n');
 
-    mkdir($dest_path);
+      if (!$confirm) {
+        $io->info('Module export cancelled.', true);
+        return;
+      }
+    } else {
+      mkdir($dest_path);
+    }
 
     $files = glob("{$src_path}/*.*");
 
