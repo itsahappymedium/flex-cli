@@ -4,36 +4,44 @@ namespace HappyMedium\Flex\Cli;
 use Ahc\Cli\Input\Command;
 
 abstract class BaseCommand extends Command {
+  public $contentPath = 'content';
+  public $jsonFile = 'acf-json/group_658da618097e1.json';
+  public $modulesPath = 'flex';
+  public $themePath = '';
+  public $repoUrl = 'git@github.com:itsahappymedium/flex-library.git';
+  public $repoPath = '~/flex_modules';
+  public $repoModulesPath = 'modules';
+
   public function __construct($command, $description, $used_globals = array()) {
     parent::__construct($command, $description);
 
     if (in_array('contentPath', $used_globals)) {
-      $this->option('-c --content-path [path]', 'The path to the wp-content directory for the current project', 'strval', 'content');
+      $this->option('-c --content-path [path]', 'The path to the wp-content directory for the current project', 'strval', $this->contentPath);
     }
 
     if (in_array('jsonFile', $used_globals)) {
-      $this->option('-j --json-file [path]', 'The path to the flex.json file relative to the content-path', 'strval', 'acf-json/group_658da618097e1.json');
+      $this->option('-j --json-file [path]', 'The path to the flex.json file relative to the content-path', 'strval', $this->jsonFile);
     }
 
     if (in_array('modulesPath', $used_globals)) {
-      $this->option('-m --modules-path [path]', 'The path where flex modules should be located in the current project relative to the content-path', 'strval', 'flex');
+      $this->option('-m --modules-path [path]', 'The path where flex modules should be located in the current project relative to the content-path', 'strval', $this->modulesPath);
     }
 
     if (in_array('themePath', $used_globals)) {
-      $this->option('-p --theme-path [path]', 'The path to the theme for the current project', 'strval');
+      $this->option('-p --theme-path [path]', 'The path to the theme for the current project', 'strval', $this->themePath);
     }
 
     if (in_array('repoUrl', $used_globals)) {
-      $this->option('-r --repo-url [url]', 'The URL to the flex modules library repo', 'strval', 'git@github.com:itsahappymedium/flex-library.git');
+      $this->option('-r --repo-url [url]', 'The URL to the flex modules library repo', 'strval', $this->repoUrl);
     }
 
     if (in_array('repoPath', $used_globals)) {
       $sanitize_repo_path = function($path) { return $this->sanitize_repo_path($path); };
-      $this->option('-t --repo-path [path]', 'The path to where the flex modules library should be stored', $sanitize_repo_path, $this->sanitize_repo_path('~/flex_modules'));
+      $this->option('-t --repo-path [path]', 'The path to where the flex modules library should be stored', $sanitize_repo_path, $this->sanitize_repo_path($this->repoPath));
     }
 
     if (in_array('repoModulesPath', $used_globals)) {
-      $this->option('-u --repo-modules-path [path]', 'The path inside of the flex modules library repo where the modules are stored', 'strval', 'modules');
+      $this->option('-u --repo-modules-path [path]', 'The path inside of the flex modules library repo where the modules are stored', 'strval', $this->repoModulesPath);
     }
   }
 
